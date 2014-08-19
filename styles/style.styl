@@ -1,7 +1,13 @@
 @import 'nib'
 
 body
-  background linear-gradient(top, yellow, red)
+  background linear-gradient(top, whitesmoke, grey)
+
+nav ul
+  background #efefef
+  background linear-gradient(top, #efefef, #bbbbbb 100%)
+  padding 0 20
+  border radius 10
 
 .top-nav
   display flex
@@ -9,8 +15,6 @@ body
   align-items center
   justify-content space-around
   width 95%
-  border 1 solid orchid
-  background plum
 
 .top-nav > li > a
   font-family segoe ui,helvetica,arial,sans-serif
@@ -20,7 +24,6 @@ body
   
 .top-nav li 
   display inline-block
-  background whitesmoke
   position relative
 
 .top-nav > li:hover > a
@@ -33,25 +36,19 @@ body
   color green
 
 .top-nav > li > a
-  border-left 1 solid black
-  border-right 1 solid blueviolet
-  border-bottom 1 solid black
-  border-top 1 solid blueviolet
+  background-color: lightsteelblue
 
 .sub-nav 
   position absolute
-  align left
   width 100%
-  visibility visible
+  visibility hidden
   
 .sub-nav > li > a 
-  border 1 solid blueviolet
-  border-top none
   font-size 18
   text-decoration none
 
-.sub-nav > li:last-child a
-  border-bottom 1 solid blueviolet
+.sub-nav > li > a:hover
+  background-color springgreen
 
 .sub-nav li:hover  
   visibility visible
@@ -63,7 +60,9 @@ body
   background lightgrey
   padding 10
   
-
+.grid 
+  width 95%
+  height 60%
 
 
 
