@@ -5,7 +5,7 @@ angular.module('app')
     getPods: function() {
       return [{name: 'Pod1'}];
     }
-  }
+  };
 })
 .controller('PodsCtrl', ['$scope', 'DataService', function (scope, DataService) {
     scope.title = "Pods Table";
@@ -30,7 +30,7 @@ angular.module('app')
       {field: 'timezone', displayName: 'Timezone'}
      ] ,
       data: 'podData'
-  } 
+  }; 
 }]);
 
  

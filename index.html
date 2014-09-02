@@ -2,18 +2,38 @@
 
 <head>
   <meta charset="utf-8" />
-  <link href="http://fonts.googleapis.com/css?family-Open+Sana:400,700" rel="stylesheet" />
   <link href="/css/style.css" rel="stylesheet" type="text/css">
+  <link rel="styleSheet" href="/css/custom-grid.css"/>
+     <link rel="styleSheet" href="/css/ui-grid-features.css"/>
+   
+    <script src="/components/angular.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/pods.js"></script>
+    <script src="/components/ui-grid.js"></script>
+    
+   <script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+   <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+   <script src="/scripts/ecma6.js"></script>
+    <script>
+      traceur.options.experimental = true;
+    </script>
 </head>
 
-<body ng-app>
+<body ng-app="app">
   <header>
     <nav>
+      <rsa-nav-bar/>
+    </nav>
+  </header>
       <ul class="top-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li class="active"><a href="#">System</a> 
+        <li><a ui-sref="home">Home</a>
           <ul class="sub-nav">
-            <li><a href="#">Pods</a></li>
+            <li><a ui-sref="preferences">Preferences</a></li>
+          </ul>
+        </li>
+        <li><a href="#">System</a> 
+          <ul class="sub-nav">
+            <li><a ui-sref="pods">Pods</a></li>
             <li><a href="#">Snapshots</a></li>
             <li><a href="#">Tasks</a></li>
             <li><a href="#">Events</a></li>
@@ -59,9 +79,18 @@
         <li><a href="#">Logout</a></li>
         <li><a href="#">Help</a></li>
       </ul>    
-    </nav>
-  </header>
-  <script src="/components/angular.js"></script>
+ 
+  
+<h1 id="message"></h1>
+   <div class="container">
+     <ui-view></ui-view> 
+  </div>
+  
+  
+
+  <script src="/components/angular-ui-router.js"></script>
+  
+ 
 </body>
 
 </html>

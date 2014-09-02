@@ -1,9 +1,19 @@
 body {
-  background: -webkit-linear-gradient(top, #ff0, #f00);
-  background: -moz-linear-gradient(top, #ff0, #f00);
-  background: -o-linear-gradient(top, #ff0, #f00);
-  background: -ms-linear-gradient(top, #ff0, #f00);
-  background: linear-gradient(to bottom, #ff0, #f00);
+  background: -webkit-linear-gradient(top, #f5f5f5, #808080);
+  background: -moz-linear-gradient(top, #f5f5f5, #808080);
+  background: -o-linear-gradient(top, #f5f5f5, #808080);
+  background: -ms-linear-gradient(top, #f5f5f5, #808080);
+  background: linear-gradient(to bottom, #f5f5f5, #808080);
+}
+nav ul {
+  background: #efefef;
+  background: -webkit-linear-gradient(top, #efefef, #bbb 100%);
+  background: -moz-linear-gradient(top, #efefef, #bbb 100%);
+  background: -o-linear-gradient(top, #efefef, #bbb 100%);
+  background: -ms-linear-gradient(top, #efefef, #bbb 100%);
+  background: linear-gradient(to bottom, #efefef, #bbb 100%);
+  padding: 0 20;
+  border: radius 10;
 }
 .top-nav {
   display: -webkit-box;
@@ -31,8 +41,6 @@ body {
   -webkit-justify-content: space-around;
   justify-content: space-around;
   width: 95%;
-  border: 1 solid #da70d6;
-  background: #dda0dd;
 }
 .top-nav > li > a {
   font-family: segoe ui, helvetica, arial, sans-serif;
@@ -42,7 +50,6 @@ body {
 }
 .top-nav li {
   display: inline-block;
-  background: #f5f5f5;
   position: relative;
 }
 .top-nav > li:hover > a {
@@ -55,25 +62,19 @@ body {
   color: #008000;
 }
 .top-nav > li > a {
-  border-left: 1 solid #000;
-  border-right: 1 solid #8a2be2;
-  border-bottom: 1 solid #000;
-  border-top: 1 solid #8a2be2;
+  background-color: #b0c4de;
 }
 .sub-nav {
   position: absolute;
-  align: left;
   width: 100%;
-  visibility: visible;
+  visibility: hidden;
 }
 .sub-nav > li > a {
-  border: 1 solid #8a2be2;
-  border-top: none;
   font-size: 18;
   text-decoration: none;
 }
-.sub-nav > li:last-child a {
-  border-bottom: 1 solid #8a2be2;
+.sub-nav > li > a:hover {
+  background-color: #00ff7f;
 }
 .sub-nav li:hover {
   visibility: visible;
@@ -84,6 +85,10 @@ body {
   height: 250;
   background: #d3d3d3;
   padding: 10;
+}
+.grid {
+  width: 95%;
+  height: 60%;
 }
 @media screen and (min-width: 0px) and (max-width: 640px) {
   nav {

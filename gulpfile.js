@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var plumber = require('gulp-plumber');
-var nodemon = require('gulp-nodemon');
 var stylus = require('gulp-stylus');
 var livereload = require('gulp-livereload');
 var jshint = require('gulp-jshint');
@@ -11,6 +10,8 @@ var browserSync = require('browser-sync');
 var gutil = require('gulp-util');
 var reload = browserSync.reload;
 var nib = require('nib');
+var traceur = require('gulp-traceur');
+var sourcemaps = require('gulp-sourcemaps');
 
 
 var SERVER_PORT = 9000;
@@ -34,11 +35,19 @@ var paths = {
   htmlSrc: APP_SRC + '/index.html',
   htmlDest: APP_DEPLOY,
   stylesSrc: APP_SRC + '/styles/*.styl',
-  stylesDest: APP_DEPLOY + '/css/'
+  stylesDest: APP_DEPLOY + '/css/',
+  cssSrc: APP_SRC + '/css/*.css',
+  partialsSrc: APP_SRC + '/partials/*.html',
+  partialsDest: APP_DEPLOY + '/partials/',
+  traceurSrc: APP_SRC + '/ecma6/*.js'
 }
 
 gulp.src(APP_SRC + '/bower_components/angular/angular.js')
     .pipe(gulp.dest(APP_DEPLOY + '/components/'));
+gulp.src(APP_SRC + '/bower_components/angular-ui-router/release/angular-ui-router.js')
+    .pipe(gulp.dest(APP_DEPLOY + '/components/'));
+gulp.src(APP_SRC + '/bower_components/ui-grid.js')
+    .pipe(gulp.dest(APP_DEPLOY + '/components'));
 
 gulp.task('server', function() {
   browserSync({
@@ -48,8 +57,11 @@ gulp.task('server', function() {
   });
   
   gulp.watch(paths.stylesSrc, ['styles']);
+  gulp.watch(paths.cssSrc, ['css']);
   gulp.watch(paths.htmlSrc, ['html']);
   gulp.watch(paths.scriptsSrc, ['lint', 'scripts']);
+  gulp.watch(paths.partialsSrc, ['partials']);
+  gulp.watch(paths.traceurSrc, ['traceur'])
 });
 
 gulp.task('lint', function () {
@@ -80,6 +92,16 @@ gulp.task('styles', function () {
     .pipe(reload({stream:true}));
 });
 
+gulp.task('css', function () {
+  console.log("CSSing : " + paths.cssSrc);
+  return gulp.src(paths.cssSrc)
+    .pipe(plumber({
+      errorHandler: onError
+    }))
+    .pipe(gulp.dest(paths.stylesDest))
+    .pipe(reload({stream:true}));
+});
+
 gulp.task('html', function() {
   console.log("Initing : " + paths.htmlSrc);
   return gulp.src(paths.htmlSrc)
@@ -90,6 +112,23 @@ gulp.task('html', function() {
     .pipe(reload({stream:true}));
 });
 
+gulp.task('partials', function () {
+  console.log("Partialing : " + paths.partialsSrc);
+  return gulp.src(paths.partialsSrc)
+   .pipe(plumber({
+      errorHandler: onError
+    }))
+    .pipe(gulp.dest(paths.partialsDest))
+    .pipe(reload({stream:true}));
+});
 
+gulp.task('traceur', function () {
+  console.log("Traceuring : " + paths.traceurSrc);
+  return gulp.src(paths.traceurSrc)
+    .pipe(sourcemaps.init())
+    .pipe(traceur())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(paths.scriptsDest))
+});
 
-gulp.task('default', ['server', 'styles', 'lint', 'scripts', 'html']);
+gulp.task('default', ['server', 'styles', 'css', 'lint', 'scripts', 'html', 'partials', 'traceur']);
