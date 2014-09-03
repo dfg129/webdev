@@ -4,7 +4,6 @@ var gulp = require('gulp');
 var watch = require('gulp-watch');
 var plumber = require('gulp-plumber');
 var stylus = require('gulp-stylus');
-var livereload = require('gulp-livereload');
 var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync');
 var gutil = require('gulp-util');
@@ -14,10 +13,8 @@ var traceur = require('gulp-traceur');
 var sourcemaps = require('gulp-sourcemaps');
 
 
-var SERVER_PORT = 9000;
 var APP_SRC = '.';
 var APP_DEPLOY = './dist/public';
-var LIVERELOAD_PORT = 35729;
 
 var onError = function (err) { 
   console.log(err);

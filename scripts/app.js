@@ -26,8 +26,13 @@ var app = angular.module('app', ['ui.router', 'ui.grid', 'ui.grid.resizeColumns'
   })
 .controller('NavCtrl', ['$scope', function($scope) {
   $scope.navSet = {
-    items:['Home', 'System', 'Customers', 'Operators']
-  };
+    navMenus:[
+      { navMenuItem: 'Home', subMenuItems: [{ item: 'Preferences'}] },
+      { navMenuItem: 'System', subMenuItems: [{item: 'Pods'}, {item: 'Snapshots'}, {item: 'tasks'}]}, 
+      { navMenuItem: 'Customers' }, 
+      { navMenuItem: 'Operators' },
+      { navMenuItem: 'Logout'}
+    ]};
 }])
 .directive('rsaNavBar', function($compile) {
   return {
