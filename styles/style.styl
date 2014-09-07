@@ -1,7 +1,6 @@
-@import 'nib'
-
 body
   background linear-gradient(top, whitesmoke, grey)
+  margin 0
 
 nav ul
   background #efefef
@@ -9,13 +8,22 @@ nav ul
   padding 0 20
   border radius 10
 
-.top-nav
+header
+  border solid 1 black
+background-image url(images/header-clouds.png)
+
+header:before 
+  right 100%
+
+header:after
+  left 100%
+
+.top-menu
   display flex
   flex-flow row
   align-items center
   justify-content space-around
-  width 95%
-
+ 
 .top-nav > li > a
   font-family segoe ui,helvetica,arial,sans-serif
   font-size 24
@@ -63,14 +71,6 @@ nav ul
 .grid 
   width 95%
   height 60%
-
-
-
-
-
-
-
-
 
 @media screen and (min-width: 0px) and (max-width: 640px)
   nav
