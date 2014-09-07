@@ -34,6 +34,8 @@ var paths = {
   stylesSrc: APP_SRC + '/styles/*.styl',
   stylesDest: APP_DEPLOY + '/css/',
   cssSrc: APP_SRC + '/css/*.css',
+  imagesSrc: APP_SRC + '/images/*',
+  imagesDest: APP_DEPLOY + '/images/',
   partialsSrc: APP_SRC + '/partials/*.html',
   partialsDest: APP_DEPLOY + '/partials/',
   traceurSrc: APP_SRC + '/ecma6/*.js'
@@ -55,6 +57,7 @@ gulp.task('server', function() {
   
   gulp.watch(paths.stylesSrc, ['styles']);
   gulp.watch(paths.cssSrc, ['css']);
+  gulp.watch(paths.imagesSrc, ['images']);
   gulp.watch(paths.htmlSrc, ['html']);
   gulp.watch(paths.scriptsSrc, ['lint', 'scripts']);
   gulp.watch(paths.partialsSrc, ['partials']);
@@ -99,6 +102,16 @@ gulp.task('css', function () {
     .pipe(reload({stream:true}));
 });
 
+gulp.task('images', function () {
+  console.log("Imaging : " + paths.imagesSrc);
+  return gulp.src(paths.imagesSrc)
+    .pipe(plumber({
+      errorHandler: onError
+    }))
+    .pipe(gulp.dest(paths.imagesDest))
+    .pipe(reload({stream:true}));
+});
+
 gulp.task('html', function() {
   console.log("Initing : " + paths.htmlSrc);
   return gulp.src(paths.htmlSrc)
@@ -128,4 +141,4 @@ gulp.task('traceur', function () {
     .pipe(gulp.dest(paths.scriptsDest))
 });
 
-gulp.task('default', ['server', 'styles', 'css', 'lint', 'scripts', 'html', 'partials', 'traceur']);
+gulp.task('default', ['server', 'styles', 'css', 'lint', 'scripts', 'html', 'partials', 'images', 'traceur']);

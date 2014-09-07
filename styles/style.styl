@@ -3,14 +3,11 @@ body
   margin 0
 
 nav ul
-  background #efefef
-  background linear-gradient(top, #efefef, #bbbbbb 100%)
   padding 0 20
   border radius 10
 
 header
   border solid 1 black
-background-image url(images/header-clouds.png)
 
 header:before 
   right 100%
@@ -23,29 +20,32 @@ header:after
   flex-flow row
   align-items center
   justify-content space-around
+  background-image url(../images/header-clouds2.jpg)
  
+.top-nav li 
+  display inline-block
+  position relative
+  
 .top-nav > li > a
   font-family segoe ui,helvetica,arial,sans-serif
   font-size 24
   font-weight bold
   text-decoration none
-  
-.top-nav li 
-  display inline-block
-  position relative
+  color #9fcfff
+  text-shadow 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue
 
 .top-nav > li:hover > a
-  color royalblue
+  color red
  
 .top-nav li:hover .sub-nav
   visibility visible
  
 .top-nav  li.active 
   color green
-
+/*
 .top-nav > li > a
-  background-color: lightsteelblue
-
+  background-color: #6e95bc
+*/
 .sub-nav 
   position absolute
   width 100%
