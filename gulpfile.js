@@ -8,7 +8,6 @@ var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync');
 var gutil = require('gulp-util');
 var reload = browserSync.reload;
-var nib = require('nib');
 var traceur = require('gulp-traceur');
 var sourcemaps = require('gulp-sourcemaps');
 
