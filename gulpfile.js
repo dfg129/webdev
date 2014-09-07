@@ -86,7 +86,6 @@ gulp.task('styles', function () {
     .pipe(plumber({
       errorHandler: onError
     }))
-    .pipe(stylus({use: [nib()], import: ['nib']}))
     .pipe(gulp.dest(paths.stylesDest))
     .pipe(reload({stream:true}));
 });
