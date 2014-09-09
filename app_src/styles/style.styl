@@ -1,0 +1,77 @@
+body
+  background linear-gradient(top, whitesmoke, grey)
+  margin 0
+
+nav ul
+  padding 0 20
+  border radius 10
+
+header
+  border solid 1 black
+
+header:before 
+  right 100%
+
+header:after
+  left 100%
+
+.top-menu
+  display flex
+  flex-flow row
+  align-items center
+  justify-content space-around
+  background-image url(../images/header-clouds2.jpg)
+ 
+.top-nav li 
+  display inline-block
+  position relative
+  
+.top-nav > li > a
+  font-family segoe ui,helvetica,arial,sans-serif
+  font-size 24
+  font-weight bold
+  text-decoration none
+  color #9fcfff
+  text-shadow 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue
+
+.top-nav > li:hover > a
+  color red
+ 
+.top-nav li:hover .sub-nav
+  visibility visible
+ 
+.top-nav  li.active 
+  color green
+/*
+.top-nav > li > a
+  background-color: #6e95bc
+*/
+.sub-nav 
+  position absolute
+  width 100%
+  visibility hidden
+  
+.sub-nav > li > a 
+  font-size 18
+  text-decoration none
+
+.sub-nav > li > a:hover
+  background-color springgreen
+
+.sub-nav li:hover  
+  visibility visible
+  display block
+  width 100%
+
+.content
+  height 250
+  background lightgrey
+  padding 10
+  
+.grid 
+  width 95%
+  height 60%
+
+@media screen and (min-width: 0px) and (max-width: 640px)
+  nav
+    flex-flow column
