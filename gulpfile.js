@@ -12,7 +12,7 @@ var traceur = require('gulp-traceur');
 var sourcemaps = require('gulp-sourcemaps');
 
 
-var APP_SRC = '.';
+var APP_SRC = './app_src';
 var APP_DEPLOY = './dist/public';
 
 var onError = function (err) { 
@@ -86,6 +86,7 @@ gulp.task('styles', function () {
     .pipe(plumber({
       errorHandler: onError
     }))
+    .pipe(stylus())
     .pipe(gulp.dest(paths.stylesDest))
     .pipe(reload({stream:true}));
 });
