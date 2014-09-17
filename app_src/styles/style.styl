@@ -5,6 +5,7 @@ body
 nav ul
   padding 0 20
   border radius 10
+  list-style none
 
 header
   border solid 1 black
@@ -15,50 +16,47 @@ header:before
 header:after
   left 100%
 
-.top-menu
+nav 
+  background-image url(../images/header-clouds2.jpg)
+  border 1 solid black
+ 
+nav ul
   display flex
   flex-flow row
   align-items center
   justify-content space-around
-  background-image url(../images/header-clouds2.jpg)
- 
-.top-nav li 
-  display inline-block
-  position relative
-  
-.top-nav > li > a
+
+nav ul li  
   font-family segoe ui,helvetica,arial,sans-serif
-  font-size 24
+  font-size 30
   font-weight bold
   text-decoration none
-  color #9fcfff
   text-shadow 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue
-
-.top-nav > li:hover > a
-  color red
- 
-.top-nav li:hover .sub-nav
-  visibility visible
- 
-.top-nav  li.active 
-  color green
-
-.sub-nav 
-  position absolute
-  width 100%
-  visibility hidden
   
-.sub-nav > li > a 
-  font-size 18
+.subnav li
+  position relative
+  background #0939d7
+  z-index 999
+
+nav ul li a 
   text-decoration none
+  color lightblue
 
-.sub-nav > li > a:hover
-  background-color springgreen
+nav ul li a:hover
+  color whitesmoke
 
-.sub-nav li:hover  
-  visibility visible
-  display block
-  width 100%
+nav ul ul 
+  display none
+  position absolute
+
+nav ul li:hover > ul
+  display list-item
+
+.subnav li
+  background rgba(200, 200 , 200, .3)
+
+nav ul li ul a
+  font-size 24
 
 .content
   height 250
@@ -68,6 +66,12 @@ header:after
 .grid 
   width 95%
   height 60%
+
+.fancy 
+  text-align center
+  font-family 'Playfair Display SC', serif;
+  font-style italic
+  font-size 60
 
 @media screen and (min-width: 0px) and (max-width: 640px)
   nav

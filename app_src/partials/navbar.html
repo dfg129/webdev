@@ -1,9 +1,10 @@
-<div class="top-menu">
-<ul class="top-nav" ng-repeat="menu in navSet.navMenus">
-  <li> <a ui-sref="home">{{menu.navMenuItem}} </a>
-      <ul class="sub-nav" ng-repeat="subitem in menu.subMenuItems">
-         <li><a ui-sref="pods">{{subitem.item}}</a></li>
-    </ul>
+<div >
+<ul >
+  <li ng-repeat="menu in navSet.navMenus"> 
+     <a ui-sref="{{menu.navMenuItem}}">{{menu.navMenuItem}} </a>
+     <ul class="subnav">
+         <li ng-repeat="subitem in menu.subMenuItems"><a ui-sref="{{subitem.item}}">{{subitem.item}}</a></li>
+     </ul>
   </li>
 </ul>
 </div>
